@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   description:
     'Upload files to Cloudflare R2 using the S3-compatible API with a modern drag-and-drop interface.',
   icons: {
-    // icon: '/cloudflare.svg',
-    icon: 'https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/96/external-cloudflare-provides-content-delivery-network-services-ddos-mitigation-logo-shadow-tal-revivo.png',
+    icon: '/cloudflare.svg',
+    // icon: 'https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/96/external-cloudflare-provides-content-delivery-network-services-ddos-mitigation-logo-shadow-tal-revivo.png',
   },
 };
 
