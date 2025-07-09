@@ -89,7 +89,7 @@ export default function UploadPage() {
             'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': [],
           }}
           className={cn(
-            'border-2 border p-8 transition-colors hover:border-gray-300',
+            'border-2 p-8 transition-colors hover:border-gray-300',
             error ? 'border-red-500 ring-1 ring-red-300' : 'border-gray-300'
           )}
           onDrop={handleDrop}
