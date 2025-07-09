@@ -6,7 +6,7 @@ import {
   DropzoneContent,
   DropzoneEmptyState,
 } from '@/components/ui/dropzone';
-import { UploadIcon, XIcon, CircleX } from 'lucide-react';
+import { UploadIcon, XIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
