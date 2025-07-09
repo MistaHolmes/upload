@@ -43,6 +43,6 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: Request) {
     const env = process.env.R2_URL;
-    console.log(env);
+    console.log(env, req.url);
     return new Response('In Upload Route', { status: 200 }); 
 }
