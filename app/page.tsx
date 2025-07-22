@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 export default function UploadPage() {
   const [files, setFiles] = useState<File[]>([]);
   const [uploading, setUploading] = useState(false);
+  const [uploadedUrl, setUploadedUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleUpload = async () => {
@@ -27,11 +28,13 @@ export default function UploadPage() {
         method: 'POST',
         body: formData,
       });
-
       if (!res.ok) {
         console.error('Upload failed:', await res.text());
       } else {
-        console.log('Upload success:', await res.text());
+        const publicUrl = await res.text();
+        await navigator.clipboard.writeText(publicUrl);
+        setUploadedUrl(publicUrl);
+        setFiles([]);
       }
     }
 
@@ -146,6 +149,32 @@ export default function UploadPage() {
                 Clear Files
               </Button>
             </div>
+          </div>
+        )}
+        {uploadedUrl && (
+          <div className="fixed bottom-6 right-6 z-50 w-[90%] max-w-sm rounded-xl border bg-white p-4 shadow-lg">
+            <h2 className="text-sm font-semibold text-green-700">✅ Upload Successful</h2>
+            <p className="mt-1 text-sm text-gray-700">
+              Your file has been uploaded:
+            </p>
+            <a
+              href={uploadedUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 block break-all text-blue-600 underline"
+            >
+              {uploadedUrl}
+            </a>
+            <p className="mt-1 text-xs text-muted-foreground">
+              (Link copied to clipboard)
+            </p>
+            <Button
+              size="sm"
+              className="mt-3"
+              onClick={() => setUploadedUrl(null)}
+            >
+              Close
+            </Button>
           </div>
         )}
       </div>
